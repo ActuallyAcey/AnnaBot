@@ -4,6 +4,8 @@ import sys
 import traceback
 import os
 
+from modules import bot_utils
+
 DESCRIPTION = "Howdy."
 TOKEN = os.environ['ANNA_BOT_TOKEN']
 
@@ -23,16 +25,21 @@ async def on_ready ():
 
 @bot.event
 async def on_message(message: discord.message.Message):
+    # Trust me, this is the simplest approach to all these checks...
     if message.author is not bot.user:
         if message.guild is not None:
             if bot.user in message.mentions:
-                await message.channel.send("You called?")
+                
+                rasa_responses = bot_utils.get_rasa_response(message.content, message.author)
+                
+                for response in rasa_responses:
+                    actual_response = f"{message.author.mention} {response}"
+                    await message.channel.send(actual_response)
 
         else:
             await message.channel.send("Sorry, I don't have DM functionality enabled at the moment.")
 
-        #print(f"{message.author} says {message.content}")
-        await bot.process_commands(message)
+    await bot.process_commands(message)
 
 
 @bot.event
