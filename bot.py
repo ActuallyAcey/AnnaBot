@@ -23,15 +23,16 @@ async def on_ready ():
 
 @bot.event
 async def on_message(message: discord.message.Message):
-    if message.guild is not None:
-        if bot.user in message.mentions:
-            await message.channel.send("You called?")
+    if message.author is not bot.user:
+        if message.guild is not None:
+            if bot.user in message.mentions:
+                await message.channel.send("You called?")
 
-    else:
-        await message.channel.send("Sorry, I don't have DM functionality enabled at the moment.")
-        
-    #print(f"{message.author} says {message.content}")
-    await bot.process_commands(message)
+        else:
+            await message.channel.send("Sorry, I don't have DM functionality enabled at the moment.")
+
+        #print(f"{message.author} says {message.content}")
+        await bot.process_commands(message)
 
 
 @bot.event
