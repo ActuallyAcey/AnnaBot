@@ -9,23 +9,21 @@ intents:
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  - text: "Heya!"
+  - text: "Howdy!"
+  - text: "'ello!"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Leaving already?"
+  - text: "Aww."
+  - text: "Alright, see you later!"
+  - text: "Good night! ...or morning. Or afternoon. Or evening. I can't really tell (yet?)."
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I most certainly am a bot, powered by RASA."
+  - text: "Perhaps..."
+  - text: "Do I pass the Turing Test if I say yes?"
+  - text: "Yes I am. Don't tell the Captcha guys, though."
 
 session_config:
   session_expiration_time: 60
