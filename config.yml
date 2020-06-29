@@ -10,6 +10,9 @@ pipeline:
     analyzer: "char_wb"
     min_ngram: 1
     max_ngram: 4
+  - name: "DucklingHTTPExtractor"
+    url: "http://localhost:6000"
+    dimensions: ["temperature"]
   - name: DIETClassifier
     epochs: 100
   - name: EntitySynonymMapper

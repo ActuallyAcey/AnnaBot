@@ -1,11 +1,8 @@
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
+  - convert_temperature
 
 responses:
   utter_greet:
@@ -24,6 +21,12 @@ responses:
   - text: "Perhaps..."
   - text: "Do I pass the Turing Test if I say yes?"
   - text: "Yes I am. Don't tell the Captcha guys, though."
+
+entities:
+  - temperature
+
+actions:
+  - action_convert_temperature
 
 session_config:
   session_expiration_time: 60
