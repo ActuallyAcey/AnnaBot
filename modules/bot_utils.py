@@ -1,5 +1,8 @@
 import requests
+
+#pylint: disable=relative-beyond-top-level
 from . import bot_config
+
 # import bot_config
 
 def get_rasa_response(user_message, user_id):

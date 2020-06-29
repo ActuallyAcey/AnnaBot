@@ -4,7 +4,9 @@ import sys
 import traceback
 import os
 
+#pylint: disable=import-error
 from modules import bot_utils
+
 
 DESCRIPTION = "Howdy."
 TOKEN = os.environ['ANNA_BOT_TOKEN']
