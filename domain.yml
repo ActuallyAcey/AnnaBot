@@ -3,6 +3,7 @@ intents:
   - goodbye
   - bot_challenge
   - convert_temperature
+  - ask_if_there
 
 responses:
   utter_greet:
@@ -20,7 +21,14 @@ responses:
   - text: "I most certainly am a bot, powered by RASA."
   - text: "Perhaps..."
   - text: "Do I pass the Turing Test if I say yes?"
-  - text: "Yes I am. Don't tell the Captcha guys, though."
+  - text: "Yep, I'm a robot! Doesn't seem like it, right?!"
+
+  utter_iamhere:
+  - text: I'm here! What's up?
+  - text: Back from the junkyard and reporting for duty!
+  - text: Yep! How can I help you?
+  - text: "Been here all along. \n\n\n Eh... Sombra does it better."   
+
 
 entities:
   - temperature
