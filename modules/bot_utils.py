@@ -1,10 +1,10 @@
 import requests
+from func_timeout import func_set_timeout
 
 #pylint: disable=relative-beyond-top-level
 from . import bot_config
 
-# import bot_config
-
+@func_set_timeout(5)
 def get_rasa_response(user_message: str, user_id: str):
     
     print(user_message)

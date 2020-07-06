@@ -3,6 +3,7 @@ from discord.ext import commands
 import sys
 import traceback
 import os
+from func_timeout import FunctionTimedOut
 
 #pylint: disable=import-error
 from modules import bot_utils
@@ -32,11 +33,15 @@ async def on_message(message: discord.message.Message):
         if message.guild is not None:
             if bot.user in message.mentions:
                 
-                rasa_responses = bot_utils.get_rasa_response(message.content, message.author)
+                try:
+                    rasa_responses = bot_utils.get_rasa_response(message.content, message.author)
                 
-                for response in rasa_responses:
-                    actual_response = f"{message.author.mention} {response}"
-                    await message.channel.send(actual_response)
+                    for response in rasa_responses:
+                        actual_response = f"{message.author.mention} {response}"
+                        await message.channel.send(actual_response)
+
+                except FunctionTimedOut:
+                    await message.channel.send("Feeling a bit slow today, sorry. Try again later.")
 
         else:
             await message.channel.send("Sorry, I don't have DM functionality enabled at the moment.")
