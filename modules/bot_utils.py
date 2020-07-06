@@ -8,7 +8,8 @@ from . import bot_config
 def get_rasa_response(user_message: str, user_id: str):
     
     print(user_message)
-    user_message = user_message.replace("<@!726886125440073738> ", "")
+    user_message = user_message.replace("<@!726886125440073738>", "")
+    user_message = user_message.replace("<@726886125440073738>", "")
     print(user_message)
     
     url = bot_config.RASA_URL
