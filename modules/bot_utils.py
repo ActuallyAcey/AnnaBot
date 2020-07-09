@@ -6,11 +6,8 @@ from func_timeout import func_set_timeout
 from . import bot_config
 
 @func_set_timeout(7)
-def get_rasa_response(user_message: str, user_id: str):
-    user_message = user_message.replace("<@!726886125440073738>", "")
-    user_message = user_message.replace("<@!726886125440073738>", "")
-    user_message = user_message.replace("<@726886125440073738>", "")
-    print(user_message)
+def get_rasa_response(user_message: str, user_id: str, bot_id):
+    user_message = re.sub(fr"(\s|^)(<@(!|&)?{bot_id}>)(\s)?", user_message, "")
     url = bot_config.RASA_URL
     data = {"sender": str(user_id), "message": user_message}
 

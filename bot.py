@@ -33,11 +33,9 @@ async def on_message(message: discord.message.Message):
     # Trust me, this is the simplest approach to all these checks...
     if message.author is not bot.user:
         if message.guild is not None:
-            print(message.content)
             if (bot.user in message.mentions) or (bot_utils.regex_check_mention(message.content, bot.user.id)): # Standard + custom mention check, try standard first
-                print("Got triggered.")
                 try:
-                    rasa_responses = bot_utils.get_rasa_response(message.content, message.author)
+                    rasa_responses = bot_utils.get_rasa_response(message.content, message.author, bot.user.id)
                 
                     for response in rasa_responses:
                         actual_response = f"{message.author.mention} {response}"
